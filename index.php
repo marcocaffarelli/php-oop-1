@@ -78,26 +78,57 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Object-Oriented Programming</title>
     </head>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    h1{
+        text-align: center;
+    }
+    .container_card{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .card_cane{
+        width: 30%;
+        border: 3px solid black;
+    }
+    .card_cane> div{
+        margin: 10px;
+    }
+    strong{
+        font-size: 20px;
+    }
+    li{
+        list-style:none;
+    }
+    </style>
     <body>
         <h1>Cani</h1>
-        <div class="card_cane">
-                <?php foreach ($cani as $cane) {?>
-                    <div><strong>Razza:</strong><?php echo $cane->nome; ?></div>
-                    <div><strong>Paese:</strong> <?php echo $cane->get_paese(); ?></div>
-                    <div><strong>Taglia:</strong> <?php echo $cane->get_taglia(); ?></div>
-                    <div><strong>Aspettative di vita media:</strong> <?php echo $cane->get_aspettative_di_vita_media(); ?></div>
-                    <div><strong>Gruppo:</strong> <?php echo $cane->get_gruppo(); ?></div>
-                    <div><strong>Caratteristiche:</strong>
-                        <ul>
-                            <?php foreach ($cane as $attributi) {?>        
-                                <?php foreach ($attributi as $caratteristica) {?>                    
-                                    <li><?php echo $caratteristica; ?></li>
+        <div class="container_card">
+            <?php foreach ($cani as $cane) {?>
+                    <div class="card_cane">
+
+                        <div><strong>Razza:</strong><?php echo $cane->nome; ?></div>
+                        <div><strong>Paese:</strong> <?php echo $cane->get_paese(); ?></div>
+                        <div><strong>Taglia:</strong> <?php echo $cane->get_taglia(); ?></div>
+                        <div><strong>Aspettative di vita media:</strong> <?php echo $cane->get_aspettative_di_vita_media(); ?></div>
+                        <div><strong>Gruppo:</strong> <?php echo $cane->get_gruppo(); ?></div>
+                        <div><strong>Caratteristiche:</strong>
+                            <ul>
+                                <?php foreach ($cane as $attributi) {?>        
+                                    <?php foreach ($attributi as $caratteristica) {?>                    
+                                        <li><?php echo $caratteristica; ?></li>
+                                    <?php } ?>
                                 <?php } ?>
-                            <?php } ?>
-                        </ul>
-                    </div>
-                    <div><strong>Descrizione:</strong> <?php echo $cane->get_descrizione(); ?></div>
-                <?php } ?>
+                            </ul>
+                        </div>
+                        <div><strong>Descrizione:</strong> <?php echo $cane->get_descrizione(); ?></div>
+                </div>
+            <?php } ?>
         </div>
     </body>
 </html>
